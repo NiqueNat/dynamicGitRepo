@@ -1,10 +1,10 @@
 <?php
 
 //include database connection
-require_once 'db_connect.php';
+require_once 'includes/db_connect.php';
 
 //query all records from the database
-$stmt = mysqli_prepare($link "SELECT, email, meal plan, timestamp FROM 'livewell_db'");
+$stmt = mysqli_prepare($link "SELECT, email, meal plan, timestamp FROM livewell_db");
 
 //execute query
 mysqli_stmt_execute($stmt);
