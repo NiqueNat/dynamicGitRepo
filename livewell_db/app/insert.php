@@ -1,5 +1,5 @@
 <?php
-require_once "includes/db_includes.php";
+require_once "./includes/db_includes.php";
 
 
 
