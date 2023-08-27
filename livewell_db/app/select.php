@@ -1,26 +1,19 @@
 <?php
-
-//include database connection
 require_once "./includes/db_includes.php";
 
-//query all records from the database
-$stmt = mysqli_prepare($link "SELECT, email, meal plan, timestamp FROM livewell_db");
+$results = [];
 
-//execute query
-mysqli_stmt_execute($stmt);
+$query = "SELECT name, email, `meal plan`, timestamp FROM livewell_db";
+$result = mysqli_query($link, $query);
 
-//get result
-$result = mysqli_stmt_get_result($stmt);
-
-//loop through the returned data
-while ($row = mysqli_fetch_assoc($result)) {
-   $results[] = $row;
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $results[] = $row;
+    }
+    mysqli_free_result($result);
 }
 
-//return json encoded array
 echo json_encode($results);
 
-//close connection
 mysqli_close($link);
-
 ?>

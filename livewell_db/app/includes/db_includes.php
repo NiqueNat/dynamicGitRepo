@@ -5,7 +5,6 @@ $db = "myrna67_live_well";
 $user = "myrna67_live_well";
 $pass = "#6823zOey";
 
-
 $link = mysqli_connect($host, $user, $pass, $db);
 
 $db_response = [];
@@ -19,3 +18,4 @@ if (!$link) {
 echo json_encode($db_response);
 
 ?>
+
