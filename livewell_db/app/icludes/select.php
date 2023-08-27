@@ -4,7 +4,7 @@
 require_once 'db_connect.php';
 
 //query all records from the database
-$stmt = mysqli_prepare($link "SELECT, email, meal plan, timestamp FROM 'livewell_db'.'livewell_table'");
+$stmt = mysqli_prepare($link "SELECT, email, meal plan, timestamp FROM 'livewell_db'");
 
 //execute query
 mysqli_stmt_execute($stmt);
