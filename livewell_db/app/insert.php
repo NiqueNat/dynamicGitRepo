@@ -19,7 +19,7 @@ if($stmt = mysqli_prepare($link, $query)) {
         $results[] = [
             "insertedRows" =>$insertedRows,
             "id" => $link->insert_id,
-            "full_name" => $_REQUEST["full_name"]
+            "name" => $_REQUEST["full_name"]
         ];
 
 }
