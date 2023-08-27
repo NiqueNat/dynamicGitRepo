@@ -49,5 +49,6 @@ async function inserter(data, url) {
         body: data
     });
     const confirmation = await response.json();
+    fetchMealPlan('app/select.php');
     console.log(confirmation);
 }
