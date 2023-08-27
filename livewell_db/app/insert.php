@@ -10,16 +10,16 @@ $insertedRows = 0;
 $query = "INSERT INTO livewell_db (name, email, meal plan) VALUES (?, ?, ?);"
 
 if($stmt = mysqli_prepare($link, $query)) {
-    mysqli_stmt_bind_param($stmt, "sss",$_REQUEST["full_name"], $_REQUEST['email'], $_REQUEST['meal plan']);
+    mysqli_stmt_bind_param($stmt, 'sss', $_REQUEST["full_name"], $_REQUEST['email'], $_REQUEST['meal plan']);
     mysqli_stmt_execute($stmt);
     $insertedRows = mysqli_stmt_affected_rows($stmt);
-    mysqli_stmt_close($stmt);
+   
 
     if($insertedRows > 0) {
         $results[] = [
-            "insertedRows" => $insertedRows,
+            "insertedRows" =>$insertedRows,
             "id" => $link->insert_id,
-            "full_name" => $_REQUEST["full_name"],
+            "full_name" => $_REQUEST["full_name"]
         ];
 
 }
