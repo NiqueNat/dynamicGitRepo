@@ -4,7 +4,7 @@
 require_once 'db_connect.php';
 
 //query all records from the database
-$stmt = $link->prepare($link"SELECT, email, mealplan, timestamp FROM livewell_db ORDER BY timestamp DESC");
+$stmt = $link->prepare($link"SELECT, email, meal plan, timestamp FROM livewell_db ORDER BY timestamp DESC");
 
 //execute query
 mysqli_stmt_execute($stmt);
