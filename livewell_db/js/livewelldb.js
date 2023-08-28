@@ -49,7 +49,7 @@ async function inserter(data, url) {
         method: 'POST',
         body: data
     });
-    const confirmation = await response.json();
+    // const confirmation = await response.json();
     fetchMealPlan('./app/select.php');
-    console.log(confirmation);
+    // console.log(confirmation);
 }
