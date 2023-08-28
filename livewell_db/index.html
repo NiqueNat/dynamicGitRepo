@@ -13,7 +13,7 @@
   <body>
     <header>
       <section>
-        <h1>Dynamic Web Prigramming</h1>
+        <h1>Dynamic Web Programming</h1>
         <p>Myrna Dominique</p>
       </section>
     </header>
@@ -66,6 +66,7 @@
       </section>
 
       <section id="display"></section>
+
       <!--chart populated by js-->
       <section id="graph">
         <div>
@@ -73,31 +74,6 @@
         </div>
       </section>
     </main>
-
-    <script>
-      const ctx = document.getElementById("myChart");
-
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
-            {
-              label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
-    </script>
 
     <footer>
       <p>&COPY; 2023</p>
