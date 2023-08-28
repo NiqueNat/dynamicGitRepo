@@ -1,6 +1,7 @@
-//to display resluts in a chart we need to use the chart.js library.
-console.log("Chart.js file loaded successfully");
+// Remove the import statement
+// import Chart from 'chart.js/auto';
 
+// Keep the rest of the code as is
 const ctx = document.getElementById('chartCanvas').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -17,4 +18,5 @@ const myChart = new Chart(ctx, {
         maintainAspectRatio: false
     }
 });
+
 
