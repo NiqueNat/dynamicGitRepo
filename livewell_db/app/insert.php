@@ -56,7 +56,7 @@ if ($stmt = mysqli_prepare($link, $query)) {
         }
 
 
-close the connection
+// close the connection
 mysqli_close($link);
 ?>
 
