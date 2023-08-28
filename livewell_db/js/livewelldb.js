@@ -1,5 +1,5 @@
 // livewelldb.js
-
+document.addEventListener('DOMContentLoaded', function () {
 async function fetchMealPlan(url) {
     const response = await fetch(url);
     const data = await response.json();
@@ -69,5 +69,5 @@ function updateChart(data) {
         }
     });
 }
-
+});
 
