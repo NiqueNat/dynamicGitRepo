@@ -1,119 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live Well APP</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-<body>
-<header>
-    <section>
-    <h1>Dynamic Web Prigramming</h1>
-   <p>Myrna Dominique</p>
-</section>
-</header>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"
+      integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <header>
+      <section>
+        <h1>Dynamic Web Prigramming</h1>
+        <p>Myrna Dominique</p>
+      </section>
+    </header>
 
-<main>
-    <section id="intro">
+    <main>
+      <section id="intro">
         <h2>Live Well APP</h2>
 
         <section class="Meal Plans">
-            <h2>Available Mealplans</h2>
-            <ul>
-                <li>Vegan</li>
-                <li>Vegetarian</li>
-                <li>Keto</li>
-                <li>Low Carb</li>
-                <li>Low Fat</li>
-                <li>High Protein</li>
-                <li>Gluten Free</li>
-                <li>Dairy Free</li>
-                <li>Pescatarian</li>
-                <li>Paleo</li>
-                <li>Mediterranean</li>
-            </ul>
+          <h2>Available Mealplans</h2>
+          <ul>
+            <li>Vegan</li>
+            <li>Vegetarian</li>
+            <li>Keto</li>
+            <li>Low Carb</li>
+            <li>Low Fat</li>
+            <li>High Protein</li>
+            <li>Gluten Free</li>
+            <li>Dairy Free</li>
+            <li>Pescatarian</li>
+            <li>Paleo</li>
+            <li>Mediterranean</li>
+          </ul>
         </section>
-    </section>
-<section id="insert">
-    <form id="insert-form">
-        <fieldset>
+      </section>
+      <section id="insert">
+        <form id="insert-form">
+          <fieldset>
             <legend>Meal Plans</legend>
             <p>
-                <label for="full_name">Name:</label>
-                <input type="text" name="full_name" required/>
+              <label for="full_name">Name:</label>
+              <input type="text" name="full_name" required />
             </p>
             <p>
-                <label for="email">Email:</label>
-                <input type="email" name="email" required/>
+              <label for="email">Email:</label>
+              <input type="email" name="email" required />
             </p>
             <p>
-                <label for="meal_plan">Meal Plan:</label>
-                <input type="text" name="meal_plan"/>
-                <section>
-                    <p>
-                        <a href="#" type="submit" id="submit">Create Your Meal Plan.</a>
-                    </p>
-                </section>
+              <label for="meal_plan">Meal Plan:</label>
+              <input type="text" name="meal_plan" />
+            </p>
 
-        </fieldset>
-    </form>
-</section>
+            <section>
+              <p>
+                <a href="#" type="submit" id="submit">Create Your Meal Plan.</a>
+              </p>
+            </section>
+          </fieldset>
+        </form>
+      </section>
 
-<section id="display"></section>
-<!--chart populated by js-->
-<section id="graph">
-    <div>
-        <canvas id="chartCanvas"></canvas>
-      </div>
+      <section id="display"></section>
+      <!--chart populated by js-->
+      <section id="graph">
+        <div>
+          <canvas id="chartCanvas"></canvas>
+        </div>
+      </section>
+    </main>
 
-</section>
+    <script>
+      const ctx = document.getElementById("myChart");
 
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
 
-</main>
-    
+    <footer>
+      <p>&COPY; 2023</p>
+    </footer>
 
-
-<script src="./js/livewelldb.js"></script>
-
-
-<div>
-    <canvas id="myChart"></canvas>
-  </div>
-  <!--
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <script>
-    const ctx = document.getElementById('myChart');
-  
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  </script> -->
-  
-
-  <script src="path/to/chartjs/dist/chart.umd.js"></script>
-  <footer>
-    <p>&COPY; 2023</p>
-</footer>
-
-
-</body>
+    <script src="./js/livewelldb.js"></script>
+  </body>
 </html>
-
-
