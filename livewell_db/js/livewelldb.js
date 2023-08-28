@@ -1,14 +1,11 @@
-
-
 async function fetchMealPlan(url) {
     const response = await fetch(url);
     const data = await response.json();
     displayMealPlan(data);
-    console.log(data);
 }
 
 //call fetchMealPlan() with the url of the API
-fetchMealPlan('./app/select.php');
+fetchMealPlan('app/select.php');
 
 
 
@@ -49,9 +46,9 @@ async function inserter(data, url) {
         method: 'POST',
         body: data
     });
-    //  const confirmation = await response.json();
-    // fetchMealPlan('./app/select.php');
-    // console.log(response);
+    const confirmation = await response.json();
+    fetchMealPlan('app/select.php');
+    console.log(confirmation);
 }
    
 
