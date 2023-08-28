@@ -1,107 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Live Well APP</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Well APP</title>
 
-    <!-- Chart.js cdn -->
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-    </script>
+  <!-- Chart.js cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-    <!-- mealplanner -->
-    <script src="meal-planner.js"></script>
-  </head>
+  <!-- mealplanner -->
+  <script src="meal-planner.js"></script>
+</head>
 
+<body>
+  <header>
+    <section>
+      <h1>Dynamic Web Programming</h1>
+      <p>Myrna Dominique</p>
+    </section>
+  </header>
 
-  <body>
+  <main>
+    <section id="intro">
+      <h2>Live Well APP</h2>
 
-    <header>
-      <section>
-        <h1>Dynamic Web Programming</h1>
-        <p>Myrna Dominique</p>
+      <section class="Meal Plans">
+        <h2>Available Mealplans</h2>
+        <ul>
+          <li>Vegan</li>
+          <li>Vegetarian</li>
+          <li>Keto</li>
+          <li>Low Carb</li>
+          <li>Low Fat</li>
+          <li>High Protein</li>
+          <li>Gluten Free</li>
+          <li>Dairy Free</li>
+          <li>Pescatarian</li>
+          <li>Paleo</li>
+          <li>Mediterranean</li>
+        </ul>
       </section>
-    </header>
+    </section>
+    <section id="insert">
+      <form id="insert-form">
+        <fieldset>
+          <legend>Meal Plans</legend>
+          <p>
+            <label for="full_name">Name:</label>
+            <input type="text" name="full_name" required />
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required />
+          </p>
+          <p>
+            <label for="meal_plan">Meal Plan:</label>
+            <select name="meal_plan">
+              <option value="Vegan">Vegan</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Keto">Keto</option>
+              <option value="Low Carb">Low Carb</option>
+              <option value="Low Fat">Low Fat</option>
+              <option value="High Protein">High Protein</option>
+              <option value="Gluten Free">Gluten Free</option>
+              <option value="Dairy Free">Dairy Free</option>
+              <option value="Pescatarian">Pescatarian</option>
+              <option value="Paleo">Paleo</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <!-- Add more options here as needed -->
+            </select>
+          </p>
 
-    <main>
-      <section id="intro">
-        <h2>Live Well APP</h2>
-
-        <section class="Meal Plans">
-          <h2>Available Mealplans</h2>
-          <ul>
-            <li>Vegan</li>
-            <li>Vegetarian</li>
-            <li>Keto</li>
-            <li>Low Carb</li>
-            <li>Low Fat</li>
-            <li>High Protein</li>
-            <li>Gluten Free</li>
-            <li>Dairy Free</li>
-            <li>Pescatarian</li>
-            <li>Paleo</li>
-            <li>Mediterranean</li>
-          </ul>
-        </section>
-      </section>
-      <section id="insert">
-        <form id="insert-form">
-          <fieldset>
-            <legend>Meal Plans</legend>
+          <section>
             <p>
-              <label for="full_name">Name:</label>
-              <input type="text" name="full_name" required />
+              <a href="#" type="submit" id="submit">Create Your Meal Plan.</a>
             </p>
-            <p>
-              <label for="email">Email:</label>
-              <input type="email" name="email" required />
-            </p>
-            <p>
-                <label for="meal_plan">Meal Plan:</label>
-                <select name="meal_plan">
-                    <option value="Vegan">Vegan</option>
-                    <option value="Vegetarian">Vegetarian</option>
-                    <option value="Keto">Keto</option>
-                    <option value="Low Carb">Low Carb</option>
-                    <option value="Low Fat">Low Fat</option>
-                    <option value="High Protein">High Protein</option>
-                    <option value="Gluten Free">Gluten Free</option>
-                    <option value="Dairy Free">Dairy Free</option>
-                    <option value="Pescatarian">Pescatarian</option>
-                    <option value="Paleo">Paleo</option>
-                    <option value="Mediterranean">Mediterranean</option>
-                    <!-- Add more options here as needed -->
-                </select>
-            </p>
-            
+          </section>
+        </fieldset>
+      </form>
+    </section>
 
-            <section>
-              <p>
-                <a href="#" type="submit" id="submit">Create Your Meal Plan.</a>
-              </p>
-            </section>
-          </fieldset>
-        </form>
-      </section>
+    <div id="mealPlanContainer">
+      <!-- Meal plan information will be displayed here -->
+    </div>
 
-      <div id="mealPlanContainer">
-        <!-- Meal plan information will be displayed here -->
-      </div>
-      
-      <div id="selectedMealPlan"></div>
+    <div id="selectedMealPlan"></div>
 
+    <canvas id="mealPlanDistributionChart" width="400" height="400"></canvas>
+  </main>
 
-     
-      <canvas id="mealPlanDistributionChart" width="400" height="400"></canvas>
+  <footer>
+    <p>&COPY; 2023</p>
+  </footer>
 
-    </main>
-
-    <footer>
-      <p>&COPY; 2023</p>
-    </footer>
-
-    <script src="./js/livewelldb.js"></script>
-
-  </body>
+ <script src="./js/livewelldb.js"></script>
+</body>
 </html>
+

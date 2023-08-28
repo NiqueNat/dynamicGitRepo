@@ -52,7 +52,7 @@ function updateChart(data) {
     const counts = Object.values(mealPlanCounts);
 
     // Update the chart using Chart.js
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('mealPlanDistributionChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -68,6 +68,7 @@ function updateChart(data) {
             maintainAspectRatio: false
         }
     });
+    
 }
 });
 
