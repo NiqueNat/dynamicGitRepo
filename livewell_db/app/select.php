@@ -3,7 +3,7 @@ require_once "./includes/db_includes.php";
 //used to store the results of the query
 $results = [];
 //insert the data into the database
-$query = "SELECT name, email, `meal plan`, timestamp FROM livewell_db";
+$query = "SELECT name, email, meal_plan, timestamp FROM livewell_db";
 $result = mysqli_query($link, $query);
 
 //if the query was successful, return the data
