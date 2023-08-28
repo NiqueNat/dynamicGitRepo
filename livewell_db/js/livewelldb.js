@@ -49,9 +49,9 @@ async function inserter(data, url) {
         method: 'POST',
         body: data
     });
-     const confirmation = await response.json();
-    fetchMealPlan('./app/select.php');
-    console.log(response);
+    //  const confirmation = await response.json();
+    // fetchMealPlan('./app/select.php');
+    // console.log(response);
 }
    
 
