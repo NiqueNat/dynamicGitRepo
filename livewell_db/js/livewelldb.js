@@ -71,8 +71,3 @@ function updateChart(data) {
 }
 
 
-
-
-
-
-
