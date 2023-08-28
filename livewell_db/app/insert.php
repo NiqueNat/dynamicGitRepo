@@ -14,7 +14,7 @@ try {
     }
 
 //insert the data into the database
-$query = "INSERT INTO livewell_db (name, email, meal plan) VALUES (?, ?, ?)";
+$query = "INSERT INTO livewell_db (name, email, meal_plan) VALUES (?, ?, ?)";
 
 //prepare the query
 if ($stmt = mysqli_prepare($link, $query)) {
