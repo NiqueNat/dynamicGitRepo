@@ -1,9 +1,7 @@
 //to display resluts in a chart we need to use the chart.js library.
+console.log("Chart.js file loaded successfully");
 
-// Get the canvas element
 const ctx = document.getElementById('chartCanvas').getContext('2d');
-
-// Create a bar chart
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -19,3 +17,4 @@ const myChart = new Chart(ctx, {
         maintainAspectRatio: false
     }
 });
+
