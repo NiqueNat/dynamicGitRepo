@@ -1,5 +1,5 @@
 // Remove the import statement
-// import Chart from 'chart.js/auto';
+ import Chart from 'chart.js/auto';
 
 // Keep the rest of the code as is
 const ctx = document.getElementById('chartCanvas').getContext('2d');
