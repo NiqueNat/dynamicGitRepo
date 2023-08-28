@@ -1,27 +1,11 @@
 async function fetchMealPlan(url) {
     const response = await fetch(url);
     const data = await response.json();
-    displayMealPlan(data);
     updateChart(data); // Call the function to update the chart
 }
 
 // Call fetchMealPlan() with the url of the API
 fetchMealPlan('app/select.php');
-
-function displayMealPlan(data) {
-    const display = document.querySelector('#display');
-    display.innerHTML = '';
-
-    let ul = document.createElement('ul');
-
-    data.forEach((user) => {
-        let li = document.createElement('li');
-        li.innerHTML = `${user.meal_plan_id} ${user.meal_plan_name}.`;
-        ul.appendChild(li);
-    });
-
-    display.appendChild(ul);
-}
 
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', getFormData);
@@ -77,6 +61,7 @@ function updateChart(data) {
         }
     });
 }
+
 
 
 
