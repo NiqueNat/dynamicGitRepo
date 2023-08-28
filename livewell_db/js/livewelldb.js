@@ -52,16 +52,3 @@ async function inserter(data, url) {
 }
 
 
-
-
-// async function inserter(data, url) {
-//     const response = await fetch(url, {
-//         method: 'POST',
-//         body: data
-//     });
-//     const confirmation = await res.text();
-//     fetchMealPlan('app/select.php');
-//     console.log(confirmation);
-// }
-   
-
