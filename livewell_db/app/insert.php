@@ -60,6 +60,7 @@ if ($stmt = mysqli_prepare($link, $query)) {
             ]);
         }
 
+        echo json_encode($results);
 
 // close the connection
 mysqli_close($link);
