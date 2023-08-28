@@ -15,7 +15,6 @@ if (!$link) {
 } else {
     $db_response['success'] = true;
 }
-echo json_encode($db_response);
-
+// echo json_encode($db_response);
 ?>
 
