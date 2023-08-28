@@ -1,53 +1,17 @@
 // livewelldb.js
 
-// Function to update the pie chart with data
-function updateChartWithData(data) {
-    const mealPlanCounts = {};
-    
-    // Count occurrences of each meal plan
-    data.forEach((user) => {
-        if (mealPlanCounts[user.meal_plan_name]) {
-            mealPlanCounts[user.meal_plan_name]++;
-        } else {
-            mealPlanCounts[user.meal_plan_name] = 1;
-        }
-    });
-
-    const labels = Object.keys(mealPlanCounts);
-    const counts = Object.values(mealPlanCounts);
-
-    // Update the pie chart using Chart.js
-    const ctx = document.getElementById('mealPlanDistributionChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: counts,
-                backgroundColor: [
-                    'red', 'blue', 'green', // Add more colors as needed
-                ],
-            }],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-        },
-    });
+async function fetchMealPlan(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    updateChart(data); // Call the function to update the chart
 }
 
-// Function to fetch and display chart data
-async function fetchAndDisplayChartData() {
-    try {
-        const response = await fetch('app/select.php');
-        const data = await response.json();
-        updateChartWithData(data);
-    } catch (error) {
-        console.error('Error fetching chart data:', error);
-    }
-}
+// Call fetchMealPlan() with the url of the API
+fetchMealPlan('app/select.php');
 
-// Function to handle form submission
+const submitButton = document.querySelector('#submit');
+submitButton.addEventListener('click', getFormData);
+
 async function getFormData(event) {
     event.preventDefault();
 
@@ -61,20 +25,51 @@ async function getFormData(event) {
     let url = 'app/insert.php';
     await inserter(formData, url); // Wait for inserter to complete
     fetchMealPlan('app/select.php');
-
-    // Display the selected meal plan
-    const selectedMealPlanContainer = document.getElementById('selectedMealPlan');
-    selectedMealPlanContainer.textContent = `Selected Meal Plan: ${mealPlan}`;
 }
 
-// Add event listeners
-const submitButton = document.querySelector('#submit');
-submitButton.addEventListener('click', getFormData);
+async function inserter(data, url) {
+    const response = await fetch(url, {
+        method: 'POST',
+        body: data
+    });
+    const confirmation = await response.text();
+    console.log(confirmation);
+}
 
-// Call the function to fetch and display chart data
-fetchAndDisplayChartData();
+// This function updates the chart
+function updateChart(data) {
+    const mealPlanCounts = {}; // Count occurrences of each meal plan
 
-// The rest of your existing code...
+    data.forEach((user) => {
+        if (mealPlanCounts[user.meal_plan_name]) {
+            mealPlanCounts[user.meal_plan_name]++;
+        } else {
+            mealPlanCounts[user.meal_plan_name] = 1;
+        }
+    });
+
+    const labels = Object.keys(mealPlanCounts);
+    const counts = Object.values(mealPlanCounts);
+
+    // Update the chart using Chart.js
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Meal Plan Counts',
+                data: counts,
+                backgroundColor: 'blue'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+}
+
 
 
 
