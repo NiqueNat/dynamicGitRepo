@@ -46,7 +46,7 @@ async function inserter(data, url) {
         method: 'POST',
         body: data
     });
-    const confirmation = await response.json();
+    const confirmation = await response.json($response);
     fetchMealPlan('app/select.php');
     console.log(confirmation);
 }
