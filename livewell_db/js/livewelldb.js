@@ -46,6 +46,7 @@ async function inserter(data, url) {
         method: 'POST',
         body: data
     });
+    //using await to wait for the response for the server
     const confirmation = await response.text();
     fetchMealPlan('app/select.php');
     console.log(confirmation);
