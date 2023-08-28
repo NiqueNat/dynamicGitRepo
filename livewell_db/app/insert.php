@@ -5,6 +5,7 @@ require_once "./includes/db_includes.php";
 $results = [];
 $insertedRows = 0;
 
+// test the connection
 try {
     if (!isset($_REQUEST['full_name']) || !isset($_REQUEST['email']) || !isset($_REQUEST['meal_plan'])) {
         throw new Exception('Required data missing i.e full-name, email, meal_plan');
