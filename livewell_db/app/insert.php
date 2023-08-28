@@ -27,7 +27,7 @@ if ($stmt = mysqli_prepare($link, $query)) {
         $results[] = [
             "insertedRows" => $insertedRows,
             "id" => mysqli_insert_id($link),
-            "full_name" => $_REQUEST["full_name"]
+            "full_name" => $_REQUEST["full_name"] 
         ];
     }else{
         throw new Exception('No rows were inserted');
