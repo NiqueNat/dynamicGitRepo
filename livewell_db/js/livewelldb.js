@@ -46,27 +46,10 @@ async function inserter(data, url) {
         method: 'POST',
         body: data
     });
-
-    try {
-        // Check if response is JSON before parsing
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-            const confirmation = await response.json();
-            fetchMealPlan('app/select.php');
-            console.log(confirmation);
-        } else {
-            // Get non-JSON response as text
-            const textResponse = await response.text();
-            console.log('Non-JSON response:', textResponse);
-            // Handle non-JSON response here if needed
-        }
-    } catch (error) {
-        console.error('Error handling response:', error);
-    }
+    const confirmation = await response.text();
+    fetchMealPlan('app/select.php');
+    console.log(confirmation);
 }
-
-
-
 
 
 
