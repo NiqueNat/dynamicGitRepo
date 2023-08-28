@@ -41,39 +41,44 @@ function getFormData(event) {
     inserter(insertFormData, url);
 }
 
+async function inserter(data, url) {
+    const response = await fetch(url, {
+        method: 'POST',
+        body: data
+    });
+
+    try {
+        // Check if response is JSON before parsing
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            const confirmation = await response.json();
+            fetchMealPlan('app/select.php');
+            console.log(confirmation);
+        } else {
+            // Get non-JSON response as text
+            const textResponse = await response.text();
+            console.log('Non-JSON response:', textResponse);
+            // Handle non-JSON response here if needed
+        }
+    } catch (error) {
+        console.error('Error handling response:', error);
+    }
+}
+
+
+
+
+
+
 
 // async function inserter(data, url) {
 //     const response = await fetch(url, {
 //         method: 'POST',
 //         body: data
 //     });
-
-//     // Check if response is JSON before parsing
-//     const contentType = response.headers.get('content-type');
-//     if (contentType && contentType.includes('application/json')) {
-//         const confirmation = await response.json();
-//         fetchMealPlan('app/select.php');
-//         console.log(confirmation);
-//     } else {
-//         const textResponse = await response.text(); // Get non-JSON response as text
-//         console.log('Non-JSON response:', textResponse);
-//         // Handle non-JSON response here if needed
-//     }
+//     const confirmation = await res.text();
+//     fetchMealPlan('app/select.php');
+//     console.log(confirmation);
 // }
-
-
-
-
-
-
-async function inserter(data, url) {
-    const response = await fetch(url, {
-        method: 'POST',
-        body: data
-    });
-    const confirmation = await res.text();
-    fetchMealPlan('app/select.php');
-    console.log(confirmation);
-}
    
 
