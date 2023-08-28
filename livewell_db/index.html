@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live Well APP</title>
-    <script type="module" 
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"
-      integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
   </head>
   <body>
     <header>
@@ -67,12 +65,32 @@
 
       <section id="display"></section>
 
-      <!--chart populated by js-->
-      <section id="graph">
-        <div>
-          <canvas id="chartCanvas"></canvas>
-        </div>
-      </section>
+      <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+        <section id="update">
+            <form id="update-form">
+            <fieldset>
+                <legend>Update Meal Plan</legend>
+                <p>
+                <label for="full_name">Name:</label>
+                <input type="text" name="full_name" required />
+                </p>
+                <p>
+                <label for="email">Email:</label>
+                <input type="email" name="email" required />
+                </p>
+                <p>
+                <label for="meal_plan">Meal Plan:</label>
+                <input type="text" name="meal_plan" />
+                </p>
+    
+                <section>
+                <p>
+                    <a href="#" type="submit" id="update">Update Your Meal Plan.</a>
+                </p>
+                </section>
+            </fieldset>
+            </form>
     </main>
 
     <footer>
