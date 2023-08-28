@@ -13,11 +13,27 @@ submitButton.addEventListener('click', getFormData);
 async function getFormData(event) {
     event.preventDefault();
 
-    const insertFormData = new FormData(document.querySelector('#insert-form'));
+    const insertForm = document.querySelector('#insert-form');
+    const formData = new FormData(insertForm);
+    const mealPlan = insertForm.querySelector('select[name="meal_plan"]').value;
+
+    // Append the meal plan value to the form data
+    formData.append('meal_plan', mealPlan);
+
     let url = 'app/insert.php';
-    await inserter(insertFormData, url); // Wait for inserter to complete
+    await inserter(formData, url); // Wait for inserter to complete
     fetchMealPlan('app/select.php');
 }
+
+
+
+
+
+
+
+
+
+
 
 async function inserter(data, url) {
     const response = await fetch(url, {
