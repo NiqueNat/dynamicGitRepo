@@ -1,59 +1,66 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('HTTP/1.1 405 Method Not Allowed');
+    exit('Method Not Allowed');
+}
+
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-parse_str(file_get_contents("php://input"),$_POST);
 require_once "./db_includes.php";
 
-// Check if the required data is set in the POST request
 if (isset($_POST['full_name']) && isset($_POST['email']) && isset($_POST['meal_plan'])) {
-    // Insert the data into the database
-    $query = "INSERT INTO livewell_db (name, email, meal_plan) VALUES (?, ?, ?)";
+    $query = "INSERT INTO livewell_db (full_name, email, meal_plan) VALUES (?, ?, ?)";
 
-    if ($stmt = mysqli_prepare($link, $query)) {
-        mysqli_stmt_bind_param($stmt, 'sss', $_POST['full_name'], $_POST['email'], $_POST['meal_plan']);
-        $result = mysqli_stmt_execute($stmt);
+    if (!$stmt = mysqli_prepare($link, $query)) {
+        die('Prepare failed: ' . mysqli_error($link));
+    }
 
-        if ($result) {
-            // If the query was successful, you can return a success message or the newly inserted data
-            $insertedRows = mysqli_stmt_affected_rows($stmt);
-            $response = [
-                "success" => true,
-                "message" => "Data inserted successfully",
-                "insertedRows" => $insertedRows,
-            ];
-        } else {
-            // Handle the case where the query did not execute successfully
-            $errorDetails = mysqli_error($link);
-            $response = [
-                "success" => false,
-                "error" => "Failed to insert data: " . $errorDetails,
-            ];
+    mysqli_stmt_bind_param($stmt, 'sss', $_POST['full_name'], $_POST['email'], $_POST['meal_plan']);
+    $result = mysqli_stmt_execute($stmt);
 
-            // Log the error for debugging purposes
-            error_log("Error in insert.php: " . mysqli_error($link));
+    if ($result) {
+        // After the data is inserted, retrieve the counts of each meal plan
+        $countQuery = "SELECT meal_plan, COUNT(*) AS count FROM livewell_db GROUP BY meal_plan";
+        $countResult = mysqli_query($link, $countQuery);
+
+        if (!$countResult) {
+            die('Error: ' . mysqli_error($link));
         }
 
-        mysqli_stmt_close($stmt);
-    } else {
-        // Handle the case where the prepared statement failed
+        $mealPlanData = [];
+
+        while ($row = mysqli_fetch_assoc($countResult)) {
+            $mealPlanData[] = [
+                'meal_plan' => $row['meal_plan'],
+                'count' => $row['count'],
+            ];
+        }
+
+        mysqli_free_result($countResult);
+
         $response = [
-            "success" => false,
-            "error" => "Prepared statement did not insert records",
+            "success" => true,
+            "message" => "Data inserted successfully",
+            "mealPlanData" => $mealPlanData,
         ];
+    } else {
+        die('Error: ' . mysqli_stmt_error($stmt));
     }
+
+    mysqli_stmt_close($stmt);
 } else {
-    // Handle the case where required data is missing in the POST request
     $response = [
         "success" => false,
         "error" => "Required data missing (full_name, email, meal_plan)",
     ];
 }
 
-// Close the database connection
 mysqli_close($link);
 
-// Echo the response as JSON
+// Set Content-Type header to indicate JSON response
 header('Content-Type: application/json');
+
+// Echo the response as JSON
 echo json_encode($response);
 ?>
