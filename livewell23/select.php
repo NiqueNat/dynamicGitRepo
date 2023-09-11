@@ -1,5 +1,5 @@
 <?php
-require_once "./includes/db_includes.php";
+require_once "./db_includes.php";
 
 // Used to store the results of the query
 $results = [];

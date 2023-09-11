@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 parse_str(file_get_contents("php://input"),$_POST);
-require_once "./includes/db_includes.php";
+require_once "./db_includes.php";
 
 // Check if the required data is set in the POST request
 if (isset($_POST['full_name']) && isset($_POST['email']) && isset($_POST['meal_plan'])) {

@@ -34,7 +34,7 @@ async function getFormData() {
   const data = `full_name=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&meal_plan=${encodeURIComponent(mealPlan)}`;
 
   try {
-    const response = await fetch('./app/insert.php', {
+    const response = await fetch('./insert.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
