@@ -1,2 +1,0 @@
- <title>Datatbase Project</title>
-Create a Datatbase that allows the user to login/Create acct/ access and store infomation.
