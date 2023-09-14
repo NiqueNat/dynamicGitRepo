@@ -6,7 +6,7 @@ A initial Meal-Plan Selector, and displays a graph of others selected meal plans
 How it will grow: 
 Features will be added in the application with an approach to be considered a all in one health application...TBD
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpc6lkvnA1NhF3teCtefkeM%2FLivewell-APP%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DU1ilsWrY4c6WyZB9-1" allowfullscreen></iframe>
-
+//Wirefram and Documentation//
+https://www.figma.com/file/pc6lkvnA1NhF3teCtefkeM/Livewell-APP?type=design&node-id=0%3A1&mode=design&t=U1ilsWrY4c6WyZB9-1
 
 # dynamicgitrepo
