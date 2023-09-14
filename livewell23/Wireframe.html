@@ -44,9 +44,89 @@
 h1{
   margin: 5px;
 }
+
+/* Header styles */
+.header {
+  display: block;
+  width: 100%;
+  transition: 0.5s;
+  border: 1rem transparent #89aca3;
+  z-index: 2;
+
+}
+
+.header-flex {
+  height: 80px;
+  padding: 0 20px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #89aca3;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3rem;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.menu {
+  margin: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(90deg, rgba(245, 244, 252, 1) 0%, rgba(142, 213, 195, 1) 0%, rgba(230, 183, 183, 1) 100%);
+  width: 100%;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.menu:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.menu:hover .dropbtn {
+  background-color: #2a6c60;
+}
 	  </style>
   </head>
   <body>
+    <header class="header">
+      <div class="menu">
+          <button class="dropbtn">MENU</button>
+          <div class="dropdown-content">
+            <a href="https://www.myrna67.web582.com/">Home</a>
+            <a href="https://www.myrna67.web582.com/webCreation/index.html">Web Creation</a>
+            <a href="https://www.myrna67.web582.com/wip1/index.html">Web Interface Programming</a>
+            <a href="https://www.myrna67.web582.com/dynamic/index.html">Dynamic Web Interface</a>
+            <a href="http://www.myrna67.web582.com/">Web Development Environment</a>
+          </div>
+      </div>
+      </header>
 	  <h1>Livewell APP Wireframe and Documentation</h1>
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="1000" height="650" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpc6lkvnA1NhF3teCtefkeM%2FLivewell-APP%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DU1ilsWrY4c6WyZB9-1" allowfullscreen></iframe>
   </body>
