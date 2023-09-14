@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../root/dynamic/dynamicGitRepo"
+		},
+		{
+			"name": "dynamicGitRepo",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
