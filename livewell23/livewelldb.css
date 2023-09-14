@@ -20,11 +20,12 @@
     flex-direction: column;
     align-items: center;
     animation: gradient 15s ease infinite;
-    background-size: 400% 400%; /* Add this line */
+    background-size: 400% 400%; /*controls the size of the background image */
     background-repeat: no-repeat;
     height: 100%;
 }
 
+/*animated the background to provide visual effects */
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -83,6 +84,7 @@
     margin: 5px;
   }
   
+  /*Change the size of the canvas to fit the screen*/
   canvas {
     
     position: relative;
@@ -96,6 +98,7 @@
     
   }
   
+  /*form styling */
   form {
     display: flex;
     flex-direction: column;
@@ -214,3 +217,4 @@
     text-decoration: none;
   }
 
+/*the current layout of the site, doesn't require media queries..at the moment*/
